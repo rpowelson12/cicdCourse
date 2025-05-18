@@ -24,11 +24,12 @@ jobs:
       - name: "auth"
         uses: "google-github-actions/auth@v2"
         with:
-          service_account: "cloud-run-deployer@notely-460123.iam.gserviceaccount.com"
+          service_account: "my-service-account@my-project.iam.gserviceaccount.com"
+
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v2"
         with:
-        version: ">= 363.0.0"
+          version: ">= 363.0.0"
 
       - name: "Use gcloud CLI"
         run: "gcloud info"
