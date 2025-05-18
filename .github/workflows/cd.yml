@@ -44,9 +44,7 @@ jobs:
         run: go install github.com/pressly/goose/v3/cmd/goose@latest
 
       - name: Run migrations
-        run: |
-          export PATH="$HOME/go/bin:$PATH"
-          goose postgres "$DATABASE_URL" up ../../sql/schema
+        run: ./scripts/migrateup.sh
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image  us-central1-docker.pkg.dev/notely-460123/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project notely-460123 --max-instances=4
